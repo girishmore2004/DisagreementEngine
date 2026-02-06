@@ -41,5 +41,5 @@ export const analyzeIdea = async (userInput, challengeLevel) => {
 };
 
 export const checkHealth = async () => {
-  return apiClient.get('/health');
+  return apiClient.get('/healthz');
 };
