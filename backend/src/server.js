@@ -35,6 +35,9 @@ app.use((req, res) => {
     error: 'Route not found'
   });
 });
+app.get("/healthz", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 
 // Error handler
 app.use(errorHandler);
