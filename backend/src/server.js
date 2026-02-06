@@ -44,7 +44,8 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 // Start server
-const PORT = config.port;
+const PORT = process.env.PORT || config.port || 10000;
+
 app.listen(PORT, () => {
   logger.info(`Server running on port ${PORT}`);
   logger.info(`Environment: ${config.nodeEnv}`);
