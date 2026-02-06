@@ -7,8 +7,7 @@
 
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-22.x-339933?logo=node.js)](https://nodejs.org/)
-[![Express](https://img.shields.io/badge/Express-4.18-000000?logo=express)](https://expressjs.com/)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Express](https://img.shields.io/badge/Express-4.18-000000?logo=express)](https://expressjs.com/) 
 
 > **Transform ideas into stronger solutions through systematic AI-powered critical analysis.**
 
