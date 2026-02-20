@@ -2,7 +2,7 @@
 
 **Intelligent Idea Validation Through Adversarial AI Reasoning**
 
-🌐 **Live Demo:** https://ai-disagreement-engine.vercel.app  
+🌐 **Live Demo:** [https://ai-disagreement-engine.vercel.app  ](https://disagreement-engine.vercel.app/)
 
 
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
