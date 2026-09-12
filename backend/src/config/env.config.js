@@ -10,9 +10,13 @@ export const config = {
   groq: {
     apiKey: process.env.GROQ_API_KEY,
 
+    // llama-3.3-70b-versatile was deprecated/decommissioned by Groq on
+    // 2026-08-16. Default now points to Groq's recommended replacement.
+    // Override via GROQ_MODEL if you want e.g. 'qwen/qwen3.6-27b' or
+    // 'openai/gpt-oss-20b' (faster, smaller).
     model:
       process.env.GROQ_MODEL ||
-      'llama-3.3-70b-versatile',
+      'openai/gpt-oss-120b',
 
     maxTokens: 4000,
 
