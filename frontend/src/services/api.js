@@ -1,7 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL =import.meta.env.VITE_API_URL || 'https://disagreementengine.onrender.com/api';
-
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://disagreementengine.onrender.com/api';
 
 const apiClient = axios.create({
   baseURL: API_BASE_URL,
@@ -41,6 +40,11 @@ export const analyzeIdea = async (userInput, challengeLevel) => {
   });
 };
 
+// The backend only registers /health under the /api router
+// (see backend/src/routes/analyze.routes.js). It does NOT expose
+// /api/healthz — that path only exists at the app root (/healthz),
+// which is outside this client's baseURL. Calling '/healthz' here
+// was silently 404ing.
 export const checkHealth = async () => {
-  return apiClient.get('/healthz');
+  return apiClient.get('/health');
 };
