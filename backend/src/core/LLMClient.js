@@ -57,6 +57,28 @@ class LLMClient {
         model: this.model
       });
 
+      // Surface a specific, actionable message when the configured
+      // model itself is the problem, instead of a generic failure —
+      // this is what silently broke when Groq deprecated a model id.
+      const groqErrorCode = error?.response?.data?.error?.code;
+      const status = error?.response?.status;
+
+      if (status === 404 || groqErrorCode === 'model_not_found') {
+        throw new Error(
+          `The Groq model "${this.model}" does not exist or is not available on your account. ` +
+          `It may have been deprecated/decommissioned. Set GROQ_MODEL to a currently supported ` +
+          `model (e.g. "openai/gpt-oss-120b" or "qwen/qwen3.6-27b") and restart the server.`
+        );
+      }
+
+      if (status === 401) {
+        throw new Error('Groq API rejected the request: invalid or missing GROQ_API_KEY.');
+      }
+
+      if (status === 429) {
+        throw new Error('Groq API rate limit exceeded. Please wait and try again.');
+      }
+
       throw new Error('AI reasoning failed. Please try again.');
     }
   }
